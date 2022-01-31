@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#add-button {
+  background-color: transparent;
+  border: 1px solid black;
+  font-size: 2em;
+  cursor: pointer;
+  width: 100px;
+}
+
+.todo-modal {
+  width: 50%;
+}
