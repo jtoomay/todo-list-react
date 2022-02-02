@@ -1,10 +1,10 @@
 import "./App.css";
-import Header from "./Components/Header";
 import Todos from "./Components/Todos.js";
 import NewTodoCard from "./Components/NewTodoCard";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   // use state
@@ -30,10 +30,20 @@ function App() {
 
   return (
     <div className="App">
-      <h1> Todo List </h1>
-      <Button variant="primary" onClick={() => handleOpen()}>
-        New Todo
-      </Button>
+      {/* Header */}
+      <div className="d-flex justify-content-around">
+        <Button className="m-2 " variant="primary" onClick={() => handleOpen()}>
+          +
+        </Button>
+        <h1 className="m-2"> Todo List </h1>
+        <Button
+          className="m-2"
+          variant="primary"
+          onClick={() => alert("Not so fast there")}
+        >
+          D
+        </Button>
+      </div>
 
       <NewTodoCard
         open={handleOpen}
@@ -44,7 +54,7 @@ function App() {
 
       {/* This will list all of the todos */}
       {todo.map((item) => (
-        <Todos name={item} />
+        <Todos key={uuidv4()} name={item} />
       ))}
     </div>
   );
