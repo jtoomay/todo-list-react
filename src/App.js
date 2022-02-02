@@ -2,8 +2,8 @@ import "./App.css";
 import Header from "./Components/Header";
 import Todos from "./Components/Todos.js";
 import NewTodoCard from "./Components/NewTodoCard";
-import { useEffect, useState } from "react";
-import { Button, InputGroup, Modal, FormControl } from "react-bootstrap";
+import { useState } from "react";
+import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap
 
 function App() {
@@ -35,14 +35,17 @@ function App() {
         New Todo
       </Button>
 
-      <Button onClick={() => console.log(todo)}> Show Todo </Button>
-
       <NewTodoCard
         open={handleOpen}
         close={handleClose}
         show={show}
         todo={todoCallback}
       />
+
+      {/* This will list all of the todos */}
+      {todo.map((item) => (
+        <Todos name={item} />
+      ))}
     </div>
   );
 }
