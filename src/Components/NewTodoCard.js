@@ -6,9 +6,9 @@ export default function NewTodoCard({ open, close, show, todo }) {
   const [todoVal, setTodoVal] = useState("");
 
   return (
-    <>
+    <div className="d-flex">
       <Modal show={show}>
-        <Modal.Title> New Todo: </Modal.Title>
+        <Modal.Title className="m-3"> New Todo: </Modal.Title>
         <Modal.Body>
           <InputGroup className="todo-name-group">
             <FormControl
@@ -17,10 +17,6 @@ export default function NewTodoCard({ open, close, show, todo }) {
               onChange={(e) => setTodoVal(e.target.value)}
             />
           </InputGroup>
-
-          <Button variant="danger" onClick={() => close()}>
-            Close
-          </Button>
 
           <Button
             variant="primary"
@@ -31,8 +27,11 @@ export default function NewTodoCard({ open, close, show, todo }) {
           >
             Add
           </Button>
+          <Button className="m-3" variant="danger" onClick={() => close()}>
+            Close
+          </Button>
         </Modal.Body>
       </Modal>
-    </>
+    </div>
   );
 }
